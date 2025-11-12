@@ -4,8 +4,12 @@ public class Server{
         ServerSocket socket= new ServerSocket(port);
         socket.setToTimeout(10000);
         while(true){
-            System.out.println('Server is running on'+port);
-            Socket acceptedConnection=socket.accept();
+            try{
+                System.out.println('Server is running on'+port);
+                Socket acceptedConnection=socket.accept();
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
         }
     }
     public static void main(String[] args){
